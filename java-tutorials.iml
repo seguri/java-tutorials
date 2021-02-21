@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.diffplug.spotless:spotless-maven-plugin:2.8.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.diffplug.spotless:spotless-lib:2.12.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.diffplug.spotless:spotless-lib-extra:2.12.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.googlecode.concurrent-trees:concurrent-trees:2.6.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.codehaus.groovy:groovy-xml:3.0.7" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.codehaus.groovy:groovy:3.0.7" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.codehaus.plexus:plexus-resources:1.0.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.codehaus.plexus:plexus-utils:3.0.8" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.codehaus.plexus:plexus-container-default:1.0-alpha-9-stable-1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: junit:junit:3.8.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: classworlds:classworlds:1.1-alpha-2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.diffplug.durian:durian-core:1.2.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.diffplug.durian:durian-collect:1.2.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.jgit:org.eclipse.jgit:5.10.0.202012080955-r" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.googlecode.javaewah:JavaEWAH:1.1.7" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
+  </component>
+</module>
