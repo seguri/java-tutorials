@@ -11,8 +11,8 @@
     <relativePath/>
   </parent>
 
-  <groupId>name.seguri</groupId>
-  <artifactId>java-tutorials</artifactId>
+  <groupId>name.seguri.java</groupId>
+  <artifactId>tutorials</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
