@@ -10,7 +10,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-class FooControllerTest {
+class FooControllerTest extends AbstractContainerBaseTest {
 
   @LocalServerPort private int port;
 
