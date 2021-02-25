@@ -41,4 +41,8 @@
       </plugin>
     </plugins>
   </build>
+
+  <modules>
+    <module>springboot-testcontainers-singleton</module>
+  </modules>
 </project>
