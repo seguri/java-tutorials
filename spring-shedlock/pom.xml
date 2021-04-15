@@ -4,30 +4,46 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-	<parent>
+  <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.3.10.RELEASE</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
-	<groupId>name.seguri.java.tutorials</groupId>
+  <groupId>name.seguri.java.tutorials</groupId>
   <artifactId>spring-shedlock</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-	<properties>
+  <properties>
     <java.version>11</java.version>
   </properties>
 
-	<dependencies>
+  <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
     </dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-mongodb</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>net.javacrumbs.shedlock</groupId>
+      <artifactId>shedlock-spring</artifactId>
+      <version>4.23.0</version>
+    </dependency>
+    <dependency>
+      <groupId>net.javacrumbs.shedlock</groupId>
+      <artifactId>shedlock-core</artifactId>
+      <version>4.23.0</version>
+    </dependency>
+    <dependency>
+      <groupId>net.javacrumbs.shedlock</groupId>
+      <artifactId>shedlock-provider-mongo</artifactId>
+      <version>4.23.0</version>
+    </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
