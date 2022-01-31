@@ -1,0 +1,9 @@
+debug: false
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/spring_mongo_embedded_id
+logging:
+  level:
+    root: info
+    org.testcontainers: info
