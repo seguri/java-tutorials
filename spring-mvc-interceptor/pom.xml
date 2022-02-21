@@ -10,16 +10,17 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
-	<groupId>name.seguri.java.tutorials</groupId>
+  <groupId>name.seguri.java.tutorials</groupId>
   <artifactId>spring-mvc-interceptor</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-	<properties>
+  <properties>
     <java.version>11</java.version>
+    <rest-assured.version>4.5.1</rest-assured.version>
     <spotless.version>2.20.0</spotless.version>
   </properties>
 
-	<dependencies>
+  <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -27,6 +28,18 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>${rest-assured.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>spring-mock-mvc</artifactId>
+      <version>${rest-assured.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
