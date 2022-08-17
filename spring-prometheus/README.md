@@ -24,3 +24,7 @@ greeting_name_total{name="Carlus",} 1.0
 And in the Prometheus dashboard:
 
 ![](Screenshot.jpg)
+
+## See also
+
+- [Spring Boot app metrics - with Prometheus and Micrometer](https://www.tutorialworks.com/spring-boot-prometheus-micrometer/)
