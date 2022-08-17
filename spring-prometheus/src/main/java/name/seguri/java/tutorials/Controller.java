@@ -2,7 +2,6 @@ package name.seguri.java.tutorials;
 
 import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.MeterRegistry;
-import io.micrometer.core.instrument.Tags;
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,7 +25,7 @@ public class Controller {
   public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
     final var id = sequenceGenerator.incrementAndGet();
     final var content = String.format("Hello, %s!", name);
-    registry.counter("greeting.name", Tags.of("name", name)).increment();
+    registry.counter("greeting.name", "name", name).increment();
     return new Greeting(id, content);
   }
 }
