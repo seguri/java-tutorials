@@ -16,6 +16,7 @@
 
   <properties>
     <java.version>11</java.version>
+    <otel.version>1.19.0</otel.version>
     <spotless.version>2.22.8</spotless.version>
   </properties>
 
@@ -28,6 +29,11 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.opentelemetry.javaagent</groupId>
+      <artifactId>opentelemetry-javaagent</artifactId>
+      <version>${otel.version}</version>
+    </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -35,6 +41,12 @@
       <scope>runtime</scope>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-registry-prometheus</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -47,6 +59,15 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <!-- This is doing nothing -->
+          <argLine>
+            -javaagent:assets/opentelemetry-javaagent.jar
+            -Dotel.javaagent.debug=true
+            -Dotel.trace.exporter=logging
+            -Dotel.metrics.exporter=logging
+          </argLine>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>com.diffplug.spotless</groupId>
