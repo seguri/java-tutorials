@@ -1,0 +1,18 @@
+logging:
+  level:
+    web: DEBUG
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,mappings,prometheus
+resilience4j:
+  ratelimiter:
+    instances:
+      hello:
+        # Number of allowed requests/period
+        limitForPeriod: 1
+        # Duration of period
+        limitRefreshPeriod: 1s
+        # Requests time out after...
+        timeoutDuration: 5s
