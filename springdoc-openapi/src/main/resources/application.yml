@@ -3,3 +3,25 @@ management:
     web:
       exposure:
         include: '*'
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+springdoc:
+  # Custom property to switch between configuration style. Accepted values: [annotations, beans]
+  config-style: 'annotations'
+  api-docs:
+    # Enables springdoc-openapi endpoint
+    enabled: true
+    # Endpoint, /v3/api-docs by default, often known as /openapi.json
+    path: /api/svc-foo/v1.0/spec
+  swagger-ui:
+    # Enable swagger-ui
+    enabled: true
+    # Custom path of the swagger-ui HTML documentation, /swagger-ui.html by default
+    path: /swagger-ui.html
+
+swagger:
+  server-base-path: /another/path

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <script>
+        const list = document.createElement('ul');
+        document.body.appendChild(list);
+        const add = a => {
+            const item = document.createElement('li');
+            item.appendChild(a);
+            list.appendChild(item);
+        };
+        const anchor = url => {
+            const a = document.createElement('a');
+            a.href = url;
+            a.innerHTML = url;
+            return a;
+        };
+        [
+            '/actuator/env',
+            '/actuator/mappings',
+            '/swagger',
+            '/swagger.html',
+            '/swagger-ui.html',
+            '/swagger-ui/',
+            '/swagger-ui/index.html',
+            '/v3/api-docs',
+            '/v3/api-docs/swagger-config',
+            '/api/svc-foo/v1.0/spec',
+            '/api/svc-foo/v1.0/spec/swagger-config',
+        ].map(anchor).map(add);
+    </script>
+</body>
+</html>
