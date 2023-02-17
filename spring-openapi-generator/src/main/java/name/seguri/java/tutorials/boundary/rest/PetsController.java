@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-// You can override the mapping in application.properties
+// You can override the mapping in application.yml
 @RestController
 @RequestMapping("${openapi.swaggerPetstore.base-path:/v1}")
 public class PetsController implements PetsApi {
