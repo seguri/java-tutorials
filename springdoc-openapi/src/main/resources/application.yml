@@ -3,6 +3,9 @@ management:
     web:
       exposure:
         include: '*'
+server:
+  servlet:
+    context-path: /
 spring:
   devtools:
     livereload:
@@ -15,13 +18,15 @@ springdoc:
   api-docs:
     # Enables springdoc-openapi endpoint
     enabled: true
-    # Endpoint, /v3/api-docs by default, often known as /openapi.json
+    # Where the spec is exposed. /v3/api-docs by default
     path: /api/svc-foo/v1.0/spec
   swagger-ui:
     # Enable swagger-ui
     enabled: true
     # Custom path of the swagger-ui HTML documentation, /swagger-ui.html by default
     path: /swagger-ui.html
-
+    # Where the spec is supposed to be. /api/api to fix ingress
+    url: /api/api/svc-foo/v1.0/spec
+#    config-url: /swagger-config
 swagger:
-  server-base-path: /another/path
+  server-base-path: /useless/path
