@@ -1,19 +1,18 @@
 package name.seguri.java.tutorials.springoptionalpathvariable;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.HttpStatus;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.time.format.TextStyle;
 import java.util.Locale;
 import java.util.Optional;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpStatus;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class WeekdayControllerTest {
@@ -40,14 +39,15 @@ class WeekdayControllerTest {
   void weekday_invalidDate_fail() {
     var res = restTemplate.getForEntity(urlFor("/weekday/2000-02-40"), String.class);
 
-    assertThat(res.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
+    assertThat(res.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
   }
 
   private String urlFor(String path) {
     return Optional.ofNullable(path)
         .filter(p -> p.startsWith("/"))
         .map(p -> "http://localhost:" + port + p)
-        .orElseThrow(() -> new IllegalArgumentException("Path must start with a slash"));
+        .orElseThrow(
+            () -> new IllegalArgumentException("'" + path + "': path must start with a slash"));
   }
 
   private String getTodayWeekday() {
