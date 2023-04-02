@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 public class Consumer implements ConsumerSeekAware {
 
   @KafkaListener(topics = "#{systemEnvironment['KAFKA_TOPIC']}")
-  public void consume(String message, @Header(OFFSET) Long offset) {
-    log.info("[{}] {}", offset, message);
+  public void consume(Request data, @Header(OFFSET) Long offset) {
+    log.info("[{}] {}", offset, data);
   }
 
   @Override
