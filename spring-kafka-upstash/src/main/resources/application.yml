@@ -1,3 +1,5 @@
+app:
+  dir: @project.basedir@
 management:
   endpoints:
     web:

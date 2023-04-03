@@ -13,10 +13,16 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class Consumer implements ConsumerSeekAware {
+  private final MapRepository mapRepository;
+
+  public Consumer(MapRepository mapRepository) {
+    this.mapRepository = mapRepository;
+  }
 
   @KafkaListener(topics = "#{systemEnvironment['KAFKA_TOPIC']}")
   public void consume(Request data, @Header(OFFSET) Long offset) {
     log.info("[{}] {}", offset, data);
+    mapRepository.save(offset, data);
   }
 
   @Override

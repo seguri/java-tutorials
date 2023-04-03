@@ -1,5 +1,7 @@
 package name.seguri.java.tutorials.springkafkaupstash;
 
+import java.io.Serializable;
+
 public record Request(
     Long timestamp,
     String ray,
@@ -10,4 +12,5 @@ public record Request(
     String proto,
     String path,
     String country,
-    String city) {}
+    String city)
+    implements Serializable {}

@@ -18,6 +18,7 @@
   <properties>
     <googleJavaFormat.version>1.16.0</googleJavaFormat.version>
     <java.version>20</java.version>
+    <mapdb.version>3.0.9</mapdb.version>
     <spotless.version>2.35.0</spotless.version>
   </properties>
 
@@ -33,6 +34,11 @@
     <dependency>
       <groupId>org.springframework.kafka</groupId>
       <artifactId>spring-kafka</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mapdb</groupId>
+      <artifactId>mapdb</artifactId>
+      <version>${mapdb.version}</version>
     </dependency>
 
     <dependency>
