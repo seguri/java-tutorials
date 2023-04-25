@@ -14,7 +14,6 @@ public class MapRepository {
   public MapRepository(@Value("${app.dir}") String appDir) {
     db =
         DBMaker.fileDB(new File(appDir, "requests.db"))
-            .fileMmapEnable()
             .transactionEnable()
             .closeOnJvmShutdown()
             .make()
