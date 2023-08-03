@@ -1,6 +1,7 @@
 package name.seguri.java.springbuilderbean;
 
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public class User {
   private String name;
@@ -41,6 +42,14 @@ public class User {
   @Override
   public int hashCode() {
     return Objects.hash(name, email);
+  }
+
+  @Override
+  public String toString() {
+    return new StringJoiner(", ", User.class.getSimpleName() + "[", "]")
+        .add("name='" + name + "'")
+        .add("email='" + email + "'")
+        .toString();
   }
 
   public static final class Builder {
