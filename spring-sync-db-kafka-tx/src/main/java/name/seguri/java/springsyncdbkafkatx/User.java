@@ -1,42 +1,72 @@
 package name.seguri.java.springsyncdbkafkatx;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import java.util.Objects;
 import java.util.StringJoiner;
+import java.util.UUID;
 
+@Entity
+@Table(name = "users")
 public class User {
-  private String name;
-  private String email;
+  @Id private final UUID id;
+  private final String name;
+  private final String email;
+  @Version private final Long version;
 
-  private User(final Builder builder) {
-    setName(builder.name);
-    setEmail(builder.email);
+  // JPA
+  protected User() {
+    id = null;
+    name = null;
+    email = null;
+    version = null;
   }
 
-  public static Builder newBuilder() {
+  private User(final Builder builder) {
+    id = builder.id;
+    name = builder.name;
+    email = builder.email;
+    version = builder.version;
+  }
+
+  public static Builder builder() {
     return new Builder();
+  }
+
+  public static Builder builder(final User copy) {
+    Builder builder = new Builder();
+    builder.id = copy.getId();
+    builder.name = copy.getName();
+    builder.email = copy.getEmail();
+    builder.version = copy.getVersion();
+    return builder;
+  }
+
+  public UUID getId() {
+    return id;
   }
 
   public String getName() {
     return name;
   }
 
-  public void setName(final String name) {
-    this.name = name;
-  }
-
   public String getEmail() {
     return email;
   }
 
-  public void setEmail(final String email) {
-    this.email = email;
+  public Long getVersion() {
+    return version;
   }
 
   @Override
   public boolean equals(final Object o) {
     if (this == o) return true;
     if (!(o instanceof final User that)) return false;
-    return Objects.equals(name, that.name) && Objects.equals(email, that.email);
+    return Objects.equals(id, that.id)
+        && Objects.equals(name, that.name)
+        && Objects.equals(email, that.email);
   }
 
   @Override
@@ -47,14 +77,17 @@ public class User {
   @Override
   public String toString() {
     return new StringJoiner(", ", User.class.getSimpleName() + "[", "]")
+        .add("id=" + id)
         .add("name='" + name + "'")
         .add("email='" + email + "'")
         .toString();
   }
 
   public static final class Builder {
+    private UUID id = UUID.randomUUID();
     private String name;
     private String email;
+    private Long version;
 
     private Builder() {}
 
