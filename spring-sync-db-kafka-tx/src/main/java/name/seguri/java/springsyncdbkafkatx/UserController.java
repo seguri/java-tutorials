@@ -34,4 +34,9 @@ public class UserController {
     final var next = User.builder(curr).withName(dto.getName()).withEmail(dto.getEmail()).build();
     return userRepository.save(next);
   }
+
+  @PostMapping("/dbfail")
+  public void dbfail() {
+    userRepository.generateException("Manually triggered exception");
+  }
 }
