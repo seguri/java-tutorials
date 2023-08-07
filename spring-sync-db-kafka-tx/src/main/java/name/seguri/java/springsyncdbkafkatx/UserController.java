@@ -12,30 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-  private final UserRepository userRepository;
-  private final UserProducer userProducer;
+  private final UserService userService;
 
-  public UserController(final UserRepository userRepository, final UserProducer userProducer) {
-    this.userRepository = userRepository;
-    this.userProducer = userProducer;
+  public UserController(final UserService userService) {
+    this.userService = userService;
   }
 
   @GetMapping("/users")
   public Iterable<User> getUsers() {
-    return userRepository.findAll();
+    return userService.getUsers();
   }
 
   @PostMapping("/users")
   public User createUser(
       @RequestBody final User dto,
       @RequestParam(name = "dbfail", required = false) Boolean dbfail) {
-    final var next = User.builder().withName(dto.getName()).withEmail(dto.getEmail()).build();
-    final var saved = userRepository.save(next);
-    if (Boolean.TRUE.equals(dbfail)) {
-      userRepository.generateException("Manually triggered exception");
-    }
-    userProducer.sendUser(saved);
-    return saved;
+    return userService.createUser(dto, dbfail);
   }
 
   @PutMapping("/users/{id}")
@@ -43,18 +35,6 @@ public class UserController {
       @PathVariable final UUID id,
       @RequestBody final User dto,
       @RequestParam(name = "dbfail", required = false) Boolean dbfail) {
-    final var curr = userRepository.findById(id).orElseThrow();
-    final var next = User.builder(curr).withName(dto.getName()).withEmail(dto.getEmail()).build();
-    final var saved = userRepository.save(next);
-    if (Boolean.TRUE.equals(dbfail)) {
-      userRepository.generateException("Manually triggered exception");
-    }
-    userProducer.sendUser(saved);
-    return saved;
-  }
-
-  @PostMapping("/dbfail")
-  public void dbfail() {
-    userRepository.generateException("Manually triggered exception");
+    return userService.updateUser(id, dto, dbfail);
   }
 }
