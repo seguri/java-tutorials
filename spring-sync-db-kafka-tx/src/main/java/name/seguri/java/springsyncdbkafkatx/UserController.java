@@ -1,5 +1,6 @@
 package name.seguri.java.springsyncdbkafkatx;
 
+import java.util.List;
 import java.util.UUID;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,15 +27,22 @@ public class UserController {
   @PostMapping("/users")
   public User createUser(
       @RequestBody final User dto,
-      @RequestParam(name = "dbfail", required = false) Boolean dbfail) {
+      @RequestParam(name = "dbfail", required = false) final Boolean dbfail) {
     return userService.createUser(dto, dbfail);
+  }
+
+  @PostMapping("/users/bulk")
+  public List<User> createUsers(
+      @RequestBody final List<User> dtos,
+      @RequestParam(name = "when", required = false) final Long when) {
+    return userService.createUsers(dtos, when);
   }
 
   @PutMapping("/users/{id}")
   public User updateUser(
       @PathVariable final UUID id,
       @RequestBody final User dto,
-      @RequestParam(name = "dbfail", required = false) Boolean dbfail) {
+      @RequestParam(name = "dbfail", required = false) final Boolean dbfail) {
     return userService.updateUser(id, dto, dbfail);
   }
 }

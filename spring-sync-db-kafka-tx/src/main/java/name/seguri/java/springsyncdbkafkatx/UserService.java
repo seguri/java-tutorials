@@ -1,6 +1,8 @@
 package name.seguri.java.springsyncdbkafkatx;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.IntStream;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,7 +40,14 @@ public class UserService {
     return saved;
   }
 
-  public void dbfail(final Boolean dbfail) {
+  @Transactional
+  public List<User> createUsers(final List<User> dtos, final Long when) {
+    return IntStream.range(0, dtos.size())
+        .mapToObj(i -> createUser(dtos.get(i), when != null && when == i))
+        .toList();
+  }
+
+  private void dbfail(final Boolean dbfail) {
     if (Boolean.TRUE.equals(dbfail)) {
       userRepository.generateException("Manually triggered exception");
     }
