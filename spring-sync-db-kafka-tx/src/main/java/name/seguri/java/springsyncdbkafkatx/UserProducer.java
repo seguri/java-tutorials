@@ -14,6 +14,6 @@ public class UserProducer {
   }
 
   public void sendUser(final User user) {
-    kafkaTemplate.send(TOPIC, user.getId().toString(), user);
+    final var unused = kafkaTemplate.send(TOPIC, user.getId().toString(), user);
   }
 }
