@@ -3,22 +3,14 @@
      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.1.0</version>
+    <groupId>name.seguri.java</groupId>
+    <artifactId>springpom</artifactId>
+    <version>3.2.3-1</version>
     <relativePath/>
   </parent>
 
-  <groupId>name.seguri.java</groupId>
   <artifactId>spring-builder-bean</artifactId>
   <version>0-SNAPSHOT</version>
-
-  <properties>
-    <java.version>17</java.version>
-    <dep.plugin.error-prone.version>2.20.0</dep.plugin.error-prone.version>
-    <dep.plugin.spotless.version>2.36.0</dep.plugin.spotless.version>
-    <dep.plugin.googleJavaFormat.version>1.16.0</dep.plugin.googleJavaFormat.version>
-  </properties>
 
   <dependencies>
     <dependency>
@@ -48,52 +40,6 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>com.diffplug.spotless</groupId>
-        <artifactId>spotless-maven-plugin</artifactId>
-        <version>${dep.plugin.spotless.version}</version>
-        <configuration>
-          <java>
-            <googleJavaFormat>
-              <version>${dep.plugin.googleJavaFormat.version}</version>
-              <style>GOOGLE</style>
-            </googleJavaFormat>
-            <removeUnusedImports/>
-          </java>
-          <pom>
-            <sortPom>
-              <indentSchemaLocation>true</indentSchemaLocation>
-              <expandEmptyElements>false</expandEmptyElements>
-            </sortPom>
-          </pom>
-        </configuration>
-        <executions>
-          <execution>
-            <id>spotless</id>
-            <goals>
-              <goal>check</goal>
-            </goals>
-            <phase>validate</phase>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <compilerArgs>
-            <arg>-XDcompilePolicy=simple</arg>
-            <arg>-Xplugin:ErrorProne</arg>
-          </compilerArgs>
-          <annotationProcessorPaths>
-            <path>
-              <groupId>com.google.errorprone</groupId>
-              <artifactId>error_prone_core</artifactId>
-              <version>${dep.plugin.error-prone.version}</version>
-            </path>
-          </annotationProcessorPaths>
-        </configuration>
       </plugin>
     </plugins>
   </build>
