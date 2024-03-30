@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_accounts_table
+      author: Marco Seguri
+      preConditions:
+        - not:
+            tableExists:
+              tableName: accounts
+      changes:
+        - createTable:
+            tableName: accounts
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: balance
+                  type: numeric
+                  defaultValueNumeric: '0'
