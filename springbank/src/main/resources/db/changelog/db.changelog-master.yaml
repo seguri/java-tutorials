@@ -5,10 +5,10 @@ databaseChangeLog:
       preConditions:
         - not:
             tableExists:
-              tableName: accounts
+              tableName: springbank__accounts
       changes:
         - createTable:
-            tableName: accounts
+            tableName: springbank__accounts
             columns:
               - column:
                   name: id

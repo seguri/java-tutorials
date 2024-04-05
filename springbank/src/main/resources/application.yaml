@@ -10,6 +10,9 @@ spring:
     hibernate:
       ddl-auto: validate
     open-in-view: false
+  liquibase:
+    database-change-log-table: 'SPRINGBANK__DATABASECHANGELOG'
+    database-change-log-lock-table: 'SPRINGBANK__DATABASECHANGELOGLOCK'
 logging:
   level:
     root: info
