@@ -13,6 +13,9 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Spring Bank</name>
   <description>Demo project for Spring Boot</description>
+  <properties>
+    <dep.java-uuid-generator.version>5.0.0</dep.java-uuid-generator.version>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -29,6 +32,19 @@
     <dependency>
       <groupId>org.liquibase</groupId>
       <artifactId>liquibase-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.uuid</groupId>
+      <artifactId>java-uuid-generator</artifactId>
+      <version>${dep.java-uuid-generator.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.persistence</groupId>
+      <artifactId>jakarta.persistence-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.transaction</groupId>
+      <artifactId>jakarta.transaction-api</artifactId>
     </dependency>
 
     <dependency>
@@ -106,7 +122,31 @@
         <artifactId>maven-dependency-plugin</artifactId>
         <configuration>
           <ignoredDependencies>org.springframework*:*</ignoredDependencies>
-          <ignoredUnusedDeclaredDependencies>org.projectlombok:lombok</ignoredUnusedDeclaredDependencies>
+          <ignoredUnusedDeclaredDependencies>
+            <ignoredUnusedDeclaredDependency>org.liquibase:liquibase-core</ignoredUnusedDeclaredDependency>
+            <ignoredUnusedDeclaredDependency>org.projectlombok:lombok</ignoredUnusedDeclaredDependency>
+          </ignoredUnusedDeclaredDependencies>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <compilerArgs>
+            <arg>-XDcompilePolicy=simple</arg>
+            <arg>-Xplugin:ErrorProne</arg>
+          </compilerArgs>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>com.google.errorprone</groupId>
+              <artifactId>error_prone_core</artifactId>
+              <version>${dep.plugin.error-prone.version}</version>
+            </path>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+            </path>
+          </annotationProcessorPaths>
         </configuration>
       </plugin>
     </plugins>

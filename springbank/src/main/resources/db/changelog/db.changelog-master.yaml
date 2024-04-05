@@ -19,3 +19,11 @@ databaseChangeLog:
                   name: balance
                   type: numeric
                   defaultValueNumeric: '0'
+                  constraints:
+                    nullable: false
+              - column:
+                  name: version
+                  type: integer
+                  defaultValueNumeric: '0'
+                  constraints:
+                    nullable: false
