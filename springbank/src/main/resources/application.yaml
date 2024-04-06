@@ -13,6 +13,9 @@ spring:
   liquibase:
     database-change-log-table: 'SPRINGBANK__DATABASECHANGELOG'
     database-change-log-lock-table: 'SPRINGBANK__DATABASECHANGELOGLOCK'
+  mvc:
+    problemdetails:
+      enabled: true
 logging:
   level:
     root: info
