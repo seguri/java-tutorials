@@ -1,10 +1,10 @@
 package name.seguri.java.tutorials.springbank.domain;
 
-import jakarta.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
