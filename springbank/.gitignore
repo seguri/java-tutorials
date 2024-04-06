@@ -1,3 +1,7 @@
+load-tests/.idea/
+load-tests/__pycache__/
+load-tests/venv/
+
 # Created by https://www.toptal.com/developers/gitignore/api/java,maven,intellij+all,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,maven,intellij+all,macos
 
