@@ -1,4 +1,4 @@
-package name.seguri.java.tutorials.springbank;
+package name.seguri.java.tutorials.springbank.domain;
 
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;

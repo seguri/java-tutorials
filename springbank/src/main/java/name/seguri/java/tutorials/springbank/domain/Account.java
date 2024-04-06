@@ -1,4 +1,4 @@
-package name.seguri.java.tutorials.springbank;
+package name.seguri.java.tutorials.springbank.domain;
 
 import com.fasterxml.uuid.Generators;
 import jakarta.persistence.Entity;
