@@ -27,3 +27,14 @@ databaseChangeLog:
                   defaultValueNumeric: '0'
                   constraints:
                     nullable: false
+  - changeSet:
+      id: add_balance_non_negative_constraint
+      author: Marco Seguri
+      preConditions:
+        - tableExists:
+            tableName: springbank__accounts
+      changes:
+        - sql:
+            sql: |
+              ALTER TABLE springbank__accounts
+              ADD CONSTRAINT balance_non_negative CHECK (balance >= 0);
