@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.basepom</groupId>
+    <artifactId>basepom-minimal</artifactId>
+    <version>61</version>
+  </parent>
+
+  <groupId>name.seguri.java.tutorials</groupId>
+  <artifactId>chain-of-responsibility</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <url>https://github.com/seguri/java-tutorials/tree/master/chain-of-responsibility</url>
+
+  <properties>
+    <dep.plugin.googleJavaFormat.version>1.25.2</dep.plugin.googleJavaFormat.version>
+    <dep.plugin.spotless.version>2.44.3</dep.plugin.spotless.version>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>${dep.plugin.spotless.version}</version>
+        <configuration>
+          <java>
+            <googleJavaFormat>
+              <version>${dep.plugin.googleJavaFormat.version}</version>
+            </googleJavaFormat>
+          </java>
+          <pom>
+            <sortPom>
+              <sortProperties>true</sortProperties>
+            </sortPom>
+          </pom>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
